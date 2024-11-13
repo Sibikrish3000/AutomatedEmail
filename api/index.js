@@ -88,6 +88,15 @@ app.post('/send-email', verifyBearerToken, (req, res) => {
               font-size: 0.9rem;
               color: #aaa;
               margin-top: 30px;
+              text-align: center;
+            }
+            .footer__social {
+               margin-bottom: var(--mb-4);
+                text-align: center;
+            }
+            .footer__icon {
+              font-size: 1.5rem;
+              margin: 0 var(--mb-2);
             }
             .cta-button {
               display: inline-block;
@@ -105,6 +114,7 @@ app.post('/send-email', verifyBearerToken, (req, res) => {
             }
           </style>
         </head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <body>
           <div class="container">
             <h1>Thank you for reaching out, ${name}!</h1>
@@ -114,6 +124,11 @@ app.post('/send-email', verifyBearerToken, (req, res) => {
             <a href="https://sibikrish3000.github.io/" class="cta-button">Visit My Website</a>
             <div class="footer">
               <p>If you have any questions, feel free to reach out to me.</p>
+                <div class="footer__social">
+                  <a href="https://www.facebook.com/Sibikrish3000" class="footer__icon"><img src="https://img.icons8.com/?size=40&id=118497&format=png&color=000000" alt="Facebook" /></a>
+                  <a href="https://www.instagram.com/wasperversa_302/" class="footer__icon"><img src="https://img.icons8.com/?size=40&id=32323&format=png&color=000000" alt="Instagram" /></a>
+                  <a href="https://twitter.com/sibikrish3000" class="footer__icon"><img src="https://img.icons8.com/?size=38&id=phOKFKYpe00C&format=png&color=000000" alt="Twitter" /></a>
+                </div>
               <p>&copy; Sibikrish. All rigths reserved ${new Date().getFullYear()}</p>
             </div>
           </div>
