@@ -239,4 +239,4 @@ app.post('/send-email', verifyBearerToken, (req, res) => {
   });
 
 });
-);
+
