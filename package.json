@@ -10,6 +10,7 @@
   "version": "1.0.0",
   "main": "api/index.js",
   "scripts": {
+    "start": "node worker.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
