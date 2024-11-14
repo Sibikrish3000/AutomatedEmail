@@ -1,2 +1,2 @@
 # AutomatedEmail
-AutomatedEmail
+Automated Email
