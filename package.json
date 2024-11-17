@@ -11,11 +11,11 @@
   "version": "1.0.0",
   "main": "api/index.js",
   "scripts": {
-    "start": "node worker.js",
+    "start": "node api/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Sibikrish",
   "license": "ISC",
-  "description": ""
+  "description": "automatedemail"
 }
