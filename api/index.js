@@ -199,68 +199,94 @@ app.post('/send-email', verifyBearerToken, async (req, res) => {
       to: process.env.EMAIL_RECEIVE,
       subject: `New message from ${name}`,
       html: `
-        <html>
-          <head>
-            <style>
-              body {
-                font-family: 'Arial', sans-serif;
-                margin: 0;
-                padding: 0;
-                background: #f3f4f6;
-                color: #333;
-                height: 100%;
-                text-align: center;
-              }
-              .container {
-                max-width: 600px;
-                margin: 20px auto;
-                background-color: #ffffff;
-                padding: 30px;
-                border-radius: 8px;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-              }
-              h1 {
-                font-size: 2.5rem;
-                color: #007bff;
-                margin-top: 20px;
-              }
-              p {
-                font-size: 1.1rem;
-                line-height: 1.6;
-                color: #333;
-              }
-              .message {
-                font-style: italic;
-                background: #f7f7f7;
-                border-left: 5px solid #007bff;
-                padding: 15px;
-                margin: 20px 0;
-                font-size: 1.2rem;
-                color: #555;
-              }
-              .footer {
-                font-size: 0.9rem;
-                color: #FFFFFF;
-                margin-top: 30px;
-                text-align: center;
-                background-color: #007bff;
-                padding: 10px;
-              }
-            </style>
-          </head>
-          <body>
-            <div class="container">
-              <h1>New Message from ${name}</h1>
-              <p><strong>Email:</strong> ${email}</p>
-              <p><strong>Location:</strong> ${location}</p>
-              <p class="message">${message}</p>
-              <div class="footer">
-                <p>Reply directly to this email to respond to ${name}</p>
-              </div>
+      <html>
+        <head>
+          <style>
+            body {
+              font-family: 'Arial', sans-serif;
+              margin: 0;
+              padding: 0;
+              background: #f3f4f6;
+              color: #333;
+              height: 100%;
+              text-align: center;
+            }
+            .container {
+              max-width: 600px;
+              margin: 20px auto;
+              background-color: #ffffff;
+              padding: 30px;
+              border-radius: 8px;
+              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+            h1 {
+              font-size: 2.5rem;
+              color: #007bff;
+              margin-top: 20px;
+            }
+            p {
+              font-size: 1.1rem;
+              line-height: 1.6;
+              color: #333;
+            }
+            .message {
+              font-style: italic;
+              background: #f7f7f7;
+              border-left: 5px solid #007bff;
+              padding: 15px;
+              margin: 20px 0;
+              font-size: 1.2rem;
+              color: #555;
+            }
+            .footer {
+              font-size: 0.9rem;
+              color: #FFFFFF;
+              margin-top: 30px;
+              text-align: center;
+              background:linear-gradient(135deg, #0d1e76,#0d1730);
+
+            }
+            .cta-button {
+              display: inline-block;
+              background-color: #007bff;
+              color: #FFFFFF;
+              padding: 10px 25px;
+              text-decoration: none;
+              border-radius: 5px;
+              font-weight: bold;
+              margin-top: 30px;
+              transition: background-color 0.3s ease;
+            }
+            .cta-button:hover {
+              background-color: #0056b3;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <h1>You have a new message from ${name}!</h1>
+            <p>Here are the details of the message:</p>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <div class="message">
+              <p><strong>Message:</strong></p>
+              <blockquote>${message}</blockquote>
             </div>
-          </body>
-        </html>
-      `,
+            <a href="mailto:${email}" class="cta-button">Reply to Message</a>
+            <div class="footer">
+              <p style="color: #FFFFFF;">&copy; Sibikrish. All rigths reserved ${new Date().getFullYear()}</p>
+              <p style="color: #786f78; font-size: 8pt;">
+                User message was generated from:  
+                <br><strong>IP Address:</strong> ${ip}  
+                <br><strong>User Agent:</strong> ${useragent}  
+                <br><strong>Location:</strong> ${location}
+                <br><br>
+              </p>
+            </div>
+          </div>
+        </body>
+      </html>
+    `,
     };
 
     // Send both emails asynchronously
